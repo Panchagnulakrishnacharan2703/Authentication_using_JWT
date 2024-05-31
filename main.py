@@ -51,8 +51,8 @@ def user_login(user: UserLoginSchema):
 
 @app.post("/new", dependencies=[Depends(JWTBearer())],tags=["add"])
 def post_data(new_post: PostSchema):
-    # new_post.id = len(data) + 1
-    # data.append(new_post.model_dump())
+    new_post.id = len(data) + 1
+    data.append(new_post.model_dump())
     return {"data": "has been added"}
 
 
