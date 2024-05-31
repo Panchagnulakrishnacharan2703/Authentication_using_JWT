@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 
-URL_Database = 'postgresql://postgres:Reaper@localhost:5432/user_data'
+URL_Database = "postgresql://postgres:Reaper@:5432/mudb"
 
 engine = create_engine(URL_Database)
 Base = declarative_base()
