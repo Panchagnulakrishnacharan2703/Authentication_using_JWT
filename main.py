@@ -20,15 +20,24 @@ data=[
 
 
 @app.get("/home",tags=["default"])
-def home():
+def home() -> dict[str,str]:
+
     return {"welcome": "new user"}
 
 @app.get("/data",tags=['retrive'])
-def get_data():
+def get_data() -> dict[str,any]:
     return {"data": data}
 
 @app.post("/user/register",tags=["auth"])
-def user_register(user: UserSchema):
+def user_register(user: UserSchema) -> str:
+    """
+    The user_register function creates a new user in the database.
+    It takes a UserSchema object as input, and returns an access token for that user.
+    
+    :param user: UserSchema: Create a new user object
+    :return: A jwt token which is used to authenticate the user
+
+    """
     db_user = session.query(User).filter(User.email == user.email).first()
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
@@ -42,7 +51,14 @@ def user_register(user: UserSchema):
     return signJWT(user.email)
 
 @app.post("/user/login",tags=["auth"])
-def user_login(user: UserLoginSchema):
+def user_login(user: UserLoginSchema) -> (str | dict[str,str] ):
+    """
+    The user_login function takes a user object and returns a JWT token if the login details are valid.
+        If the login details are invalid, it returns an error message.
+    
+    :param user: UserLoginSchema: Validate the input
+    :return: A jwt token on successful login
+    """
     user_db = session.query(User).filter_by(email=user.email).first()
     if user_db and user_db.password == user.password:
         return signJWT(user.email)
@@ -50,7 +66,15 @@ def user_login(user: UserLoginSchema):
         return{"Invalid ":"login details"}
 
 @app.post("/new", dependencies=[Depends(JWTBearer())],tags=["add"])
-def post_data(new_post: PostSchema):
+def post_data(new_post: PostSchema) -> dict[str,str]:
+    """
+    The post_data function takes a new_post object and adds it to the data list.
+    It returns a dictionary with the key data and value has been added.
+    
+    
+    :param new_post: PostSchema: Specify the type of data that is being passed into the function
+    :return: A dictionary with a key of data and a value of has been added
+    """
     new_post.id = len(data) + 1
     data.append(new_post.model_dump())
     return {"data": "has been added"}
