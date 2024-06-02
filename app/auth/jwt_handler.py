@@ -20,6 +20,7 @@ def signJWT(USERID: str) -> str:
     token = jwt.encode(payload, JWT_secret, algorithm=JWT_algorithm)
     return token
 
+
 def decodeJWT(token: str) -> dict:
     """
     The decodeJWT function takes a JWT token as an argument and returns the decoded payload.

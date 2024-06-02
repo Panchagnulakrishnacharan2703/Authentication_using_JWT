@@ -19,6 +19,7 @@ data=[
 ]
 
 
+
 @app.get("/home",tags=["default"])
 def home() -> dict[str,str]:
 
@@ -64,6 +65,7 @@ def user_login(user: UserLoginSchema) -> (str | dict[str,str] ):
         return signJWT(user.email)
     else:
         return{"Invalid ":"login details"}
+    
 
 @app.post("/new", dependencies=[Depends(JWTBearer())],tags=["add"])
 def post_data(new_post: PostSchema) -> dict[str,str]:
