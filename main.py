@@ -21,16 +21,16 @@ data=[
 
 
 @app.get("/home",tags=["default"])
-def home() -> dict[str,str]:
+def home() : #->dict[str,str]:
 
     return {"welcome": "new user"}
 
 @app.get("/data",tags=['retrive'])
-def get_data() -> dict[str,any]:
+def get_data() :#-> dict[str]:
     return {"data": data}
 
 @app.post("/user/register",tags=["auth"])
-def user_register(user: UserSchema) -> str:
+def user_register(user: UserSchema) :#-> str:
     """
     The user_register function creates a new user in the database.
     It takes a UserSchema object as input, and returns an access token for that user.
@@ -52,7 +52,7 @@ def user_register(user: UserSchema) -> str:
     return signJWT(user.email)
 
 @app.post("/user/login",tags=["auth"])
-def user_login(user: UserLoginSchema) -> (str | dict[str,str] ):
+def user_login(user: UserLoginSchema): #-> (dict[str,str] ):
     """
     The user_login function takes a user object and returns a JWT token if the login details are valid.
         If the login details are invalid, it returns an error message.
@@ -68,7 +68,7 @@ def user_login(user: UserLoginSchema) -> (str | dict[str,str] ):
     
 
 @app.post("/new", dependencies=[Depends(JWTBearer())],tags=["add"])
-def post_data(new_post: PostSchema) -> dict[str,str]:
+def post_data(new_post: PostSchema) :#-> dict[str,str]:
     """
     The post_data function takes a new_post object and adds it to the data list.
     It returns a dictionary with the key data and value has been added.

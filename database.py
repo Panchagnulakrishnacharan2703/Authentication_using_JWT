@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 
-URL_Database = "postgresql://postgres:Reaper@:5432/mudb"
+URL_Database = "postgresql://postgres:password@1localhost:5432/mydb"
 
 engine = create_engine(URL_Database)
 Base = declarative_base()
@@ -16,7 +16,7 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     password = Column(String, index=True)
 
-class Companys(Base):
+class Companies(Base):
     __tablename__='datas'
     id=Column(Integer,primary_key=True,index=True)
     company_name=Column(String)
