@@ -2,10 +2,18 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.engine import URL
 
-URL_Database = "postgresql://postgres:password@localhost:5432/mydb"
+url = URL.create(
+    drivername="postgresql",
+    username="postgres",
+    host="db",
+    password="password",
+    database="mydb"
 
-engine = create_engine(URL_Database)
+)
+
+engine = create_engine(url)
 Base = declarative_base()
 
 class User(Base):
