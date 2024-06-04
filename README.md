@@ -5,18 +5,18 @@ This is an example of a FastAPI application that uses JSON Web Tokens (JWT) for 
 
 ## Directory Structure
 
-Authentication/
-├── JWT/
-│   ├── jwt_bearer.py        # Handles JWT token extraction and validation from requests.
-│   └── jwt_handler.py        # Contains logic for creating and manipulating JWT tokens.
-├── models/
-│   └── model.py              # Defines the structure of your database entities.
-├── Database/
-│   └── database.py             # Logic for connecting and interacting with the database.
-├── main.py                     # The main entry point for your application.
-├── docker-compose.yaml         # Configuration file for Docker Compose.
-├── Dockerfile                   # Defines how to build the Docker image.
-└── requirements.txt             # Text file listing project dependencies.
+Autehtication/
+    JWT/
+        ├── jwt_bearer.py        # Handles JWT token extraction and validation from requests.
+        └── jwt_handler.py        # Contains logic for creating and manipulating JWT tokens.
+    models/
+        └── model.py              # Defines the structure of your database entities.
+    Database/
+        └── database.py             # Logic for connecting and interacting with the database.
+    main.py                     # The main entry point for your application.
+    docker-compose.yaml         # Configuration file for Docker Compose.
+    Dockerfile                   # Defines how to build the Docker image.
+    requirements.txt             # Text file listing project dependencies.
 
 
 ## Features
