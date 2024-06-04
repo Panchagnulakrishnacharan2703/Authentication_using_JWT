@@ -37,8 +37,8 @@ requirements.txt
 1. Clone the repository: `git clone https://github.com/Panchagnulakrishnacharan2703/FastAPI-JWT-Authentication.git`
 2. Install dependencies: `pip install -r requirements.txt`
 3. Start the application: `docker-compose up`
-4. Register a new user: `curl -X POST -H "Content-Type: application/json" -d '{"firstname": "John", "lastname": "Doe", "email": "johndoe@example.com", "password": "password"}' http://localhost:8000/user/register`
-5. Login and retrieve data: `curl -X POST -H "Content-Type: application/json" -d '{"email": "johndoe@example.com", "password": "password"}' http://localhost:8000/user/login`
+4. Register a new user: `curl -X POST -H "Content-Type: application/json" -d '{"firstname": "krishna", "lastname": "charan", "email": "charan@example.com", "password": "password"}' http://localhost:8000/user/register`
+5. Login and retrieve data: `curl -X POST -H "Content-Type: application/json" -d '{"email": "charan@example.com", "password": "password"}' http://localhost:8000/user/login`
 
 ## Docker Compose
 
