@@ -1,8 +1,8 @@
 from fastapi import FastAPI, HTTPException, Depends
-from app.model import UserSchema, UserLoginSchema, PostSchema
-from app.auth.jwt_handler import signJWT
-from app.auth.jwt_bearer import JWTBearer
-from database import session,User
+from models.model import UserSchema, UserLoginSchema, PostSchema
+from JWT.jwt_handler import signJWT
+from JWT.jwt_bearer import JWTBearer
+from Database.database import session,User
  
 app = FastAPI()
 data=[
