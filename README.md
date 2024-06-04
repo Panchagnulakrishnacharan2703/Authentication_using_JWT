@@ -16,10 +16,10 @@ This is an example of a FastAPI application that uses JSON Web Tokens (JWT) for 
 ### Database
 - database.py
 
-main.py
-docker-compose.yaml
-Dockerfile
-requirements.txt
+- main.py
+- docker-compose.yaml
+- Dockerfile
+- requirements.txt
 
 ## Features
 
