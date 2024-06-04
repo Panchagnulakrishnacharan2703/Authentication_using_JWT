@@ -5,14 +5,17 @@ This is an example of a FastAPI application that uses JSON Web Tokens (JWT) for 
 
 ## Directory Structure
 
-JWT:
+### JWT:
 - init.py
 - jwt_bearer.py
 - jwt_handler.py
-models:
+
+### models:
 - model.py
-Database/
+
+### Database
 - database.py
+
 main.py
 docker-compose.yaml
 Dockerfile
