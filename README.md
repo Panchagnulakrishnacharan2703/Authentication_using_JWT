@@ -1,7 +1,7 @@
 
 # FastAPI JWT Authentication 
 
-This is an example of a FastAPI application that uses JSON Web Tokens (JWT) for authentication. The application includes user registration, login, and data retrieval functionality.
+This is a FastAPI application that uses JSON Web Tokens (JWT) for authentication. The application includes user registration, login, and data retrieval functionality.
 
 
 ## Directory Structure
