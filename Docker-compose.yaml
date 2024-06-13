@@ -9,13 +9,22 @@ services:
     depends_on:
       - db
 
+  newrelic:
+    image: my_python_api:dev
+    environment:
+      NEW_RELIC_LICENSE_KEY: eu01xxa776ffe61977f0edd238c45145d919NRAL
+      NEW_RELIC_APP_NAME: newrelic
+    ports:
+      - "8080:8000"
+    depends_on:
+      - app
+
   db:
     image: postgres:16.3-alpine3.20
-    container_name: POSTGRES_DB
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydb
+      POSTGRES_DB: user_data
     ports:
       - "5000:5432"
     volumes:

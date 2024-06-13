@@ -1,0 +1,7 @@
+2024-06-13 11:37:55,748 - main - INFO - Home page accessed
+2024-06-13 11:38:45,874 - main - INFO - User registered
+2024-06-13 11:38:59,037 - main - INFO - User logged in
+2024-06-13 11:44:51,159 - JWT.jwt_bearer - INFO - JWT authenticated.
+2024-06-13 11:44:51,166 - main - INFO - New data added
+2024-06-13 11:45:02,488 - main - INFO - Retrieved data
+2024-06-13 15:57:10,103 - main - INFO - Retrieved data

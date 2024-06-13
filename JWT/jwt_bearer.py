@@ -1,10 +1,10 @@
 from fastapi import Request, HTTPException
 from fastapi.security import HTTPBearer
-
+from log.log_helper import logger
 from .jwt_handler import decodeJWT
 
 class JWTBearer(HTTPBearer):
-    def __init__(self, auto_error: bool = True):
+    def __init__(self, auto_error: bool = True) :
         """
         The __init__ function is called when the class is instantiated.
         It allows the class to initialize its attributes.
@@ -16,7 +16,7 @@ class JWTBearer(HTTPBearer):
         """
         super(JWTBearer, self).__init__(auto_error=auto_error)
 
-    async def __call__(self, request: Request):
+    async def __call__(self, request: Request) :
         """
         The __call__ function is the function that will be called when a user
         attempts to access an endpoint. It takes in a request object and returns
@@ -28,15 +28,19 @@ class JWTBearer(HTTPBearer):
         """
         credentials = await super(JWTBearer, self).__call__(request)
         if not credentials:
+            logger.error('Invalid authorization code.')
             raise HTTPException(status_code=403, detail="Invalid authorization code.")
         if credentials.scheme.lower() != "bearer":
+            logger.error('Invalid authentication')
             raise HTTPException(status_code=403, detail="Invalid authentication.")
         if not self.verify_jwt(credentials.credentials):
+            logger.error('Invalid token or expired token.')
             raise HTTPException(status_code=403, detail="Invalid token or expired token.")
+        logger.info('JWT authenticated.')
         return credentials.credentials
 
 
-    def verify_jwt(self, jwtoken: str) -> bool:
+    def verify_jwt(self, jwtoken: str) :#-> bool:
         """
         The verify_jwt function takes a JWT token as an argument and returns True if the token is valid, False otherwise.
         
