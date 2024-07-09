@@ -1,4 +1,3 @@
-
 # FastAPI JWT Authentication 
 
 This is a FastAPI application that uses JSON Web Tokens (JWT) for authentication. The application includes user registration, login, and data retrieval functionality.
